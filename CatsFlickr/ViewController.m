@@ -8,10 +8,11 @@
 
 #import "ViewController.h"
 #import "PhotoModel.h"
-#import "CustomTableViewCell.h"
+#import "CustomCollectionViewCell.h"
 
-@interface ViewController () <UITableViewDelegate, UITableViewDataSource>
-@property (weak, nonatomic) IBOutlet UITableView *tableView;
+@interface ViewController () <UICollectionViewDelegate, UICollectionViewDataSource>
+@property (weak, nonatomic) IBOutlet UICollectionView *collectionView;
+
 @property NSMutableArray <PhotoModel *>*photoArray;
 
 @end
@@ -23,6 +24,11 @@
     // Do any additional setup after loading the view, typically from a nib.
     
     self.photoArray = [[NSMutableArray alloc] init];
+    
+    UICollectionViewFlowLayout *layout = (UICollectionViewFlowLayout*)self.collectionView.collectionViewLayout;
+    CGFloat width = self.view.bounds.size.width/2;
+    CGSize size = CGSizeMake(width, width);
+    layout.itemSize = size;
     
     NSURL *url = [NSURL URLWithString:@"https://api.flickr.com/services/rest/?method=flickr.photos.search&format=json&nojsoncallback=1&api_key=7f402bc8f5775181bea39c7fc69187fd&tags=cat"];
     NSURLRequest *urlRequest = [[NSURLRequest alloc] initWithURL:url];
@@ -73,7 +79,7 @@
         [[NSOperationQueue mainQueue] addOperationWithBlock:^{
             
             //This will run on the main queue
-            [self.tableView reloadData];
+            [self.collectionView reloadData];
             
         }];
         
@@ -84,62 +90,29 @@
 
 }
 
-#pragma mark - Table view data source
-
--(NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
+-(NSInteger)numberOfSectionsInCollectionView:(UICollectionView *)collectionView {
     
     return 1;
     
 }
 
--(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-
+-(NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section {
+    
     return self.photoArray.count;
     
 }
 
--(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
+-(UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath {
     
-    CustomTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"cell" forIndexPath:indexPath];
-    
+    CustomCollectionViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:@"cell" forIndexPath:indexPath];
     PhotoModel *photoModel = self.photoArray[indexPath.row];
     
     //Configure cell
-    NSString *imageURL = [NSString stringWithFormat:@"https://farm%@.staticflickr.com/%@/%@_%@.jpg", photoModel.farmID, photoModel.serverID, photoModel.photoID, photoModel.secretID];
-    
-    NSURL *url = [NSURL URLWithString:imageURL];
-    
-    NSURLSessionConfiguration *configuration = [NSURLSessionConfiguration defaultSessionConfiguration];
-    NSURLSession *session = [NSURLSession sessionWithConfiguration:configuration];
-    
-    NSURLSessionDownloadTask *downloadTask = [session downloadTaskWithURL:url completionHandler:^(NSURL *_Nullable location, NSURLResponse *_Nullable response, NSError *_Nullable error) {
-        
-        if (error) {
-            
-            //Handle error
-            NSLog(@"error: %@", error.localizedDescription);
-            return;
-            
-        }
-        
-        NSData *data = [NSData dataWithContentsOfURL:location];
-        UIImage *image = [UIImage imageWithData:data];
-        
-        [[NSOperationQueue mainQueue] addOperationWithBlock:^{
-            
-            //This will run on the main queue
-            cell.imageView.image = image;
-            
-        }];
-        
-    }];
-    
-    [downloadTask resume];
-
-    
-    cell.titleLabel.text = self.photoArray[indexPath.row].titleDescription;
+    cell.imageView.image = photoModel.imageFile;
+    cell.titleDescription.text = photoModel.titleDescription;
     
     return cell;
     
 }
+
 @end

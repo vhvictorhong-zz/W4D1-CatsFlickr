@@ -1,5 +1,5 @@
 //
-//  CustomTableViewCell.h
+//  CustomCollectionViewCell.h
 //  CatsFlickr
 //
 //  Created by Victor Hong on 21/11/2016.
@@ -8,8 +8,8 @@
 
 #import <UIKit/UIKit.h>
 
-@interface CustomTableViewCell : UITableViewCell
+@interface CustomCollectionViewCell : UICollectionViewCell
 @property (weak, nonatomic) IBOutlet UIImageView *imageView;
-@property (weak, nonatomic) IBOutlet UILabel *titleLabel;
+@property (weak, nonatomic) IBOutlet UILabel *titleDescription;
 
 @end

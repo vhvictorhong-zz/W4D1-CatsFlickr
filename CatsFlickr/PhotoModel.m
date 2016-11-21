@@ -19,7 +19,9 @@
         _photoID = photoID;
         _secretID = secretID;
         _titleDescription = titleDescription;
-        _imageURL = @"";
+        _imageURL = [NSString stringWithFormat:@"https://farm%@.staticflickr.com/%@/%@_%@.jpg", farmID, serverID, photoID, secretID];
+        
+        [self convertImageURL];
         
     }
     
@@ -28,8 +30,6 @@
 }
 
 -(void)convertImageURL {
-    
-    self.imageURL = [NSString stringWithFormat:@"https://farm%@.staticflickr.com/%@/%@_%@.jpg", self.farmID, self.serverID, self.photoID, self.secretID];
     
     NSURL *url = [NSURL URLWithString:self.imageURL];
     
@@ -52,7 +52,7 @@
         [[NSOperationQueue mainQueue] addOperationWithBlock:^{
             
             //This will run on the main queue
-            
+            self.imageFile = image;
             
         }];
         

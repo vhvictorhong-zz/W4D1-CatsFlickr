@@ -15,8 +15,8 @@
 		2B1087521DE3795B00652D19 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2B1087501DE3795B00652D19 /* LaunchScreen.storyboard */; };
 		2B10875D1DE3795B00652D19 /* CatsFlickrTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 2B10875C1DE3795B00652D19 /* CatsFlickrTests.m */; };
 		2B1087681DE3795B00652D19 /* CatsFlickrUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = 2B1087671DE3795B00652D19 /* CatsFlickrUITests.m */; };
-		2B1087771DE3842400652D19 /* CustomTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 2B1087761DE3842400652D19 /* CustomTableViewCell.m */; };
 		2B10877A1DE385DF00652D19 /* PhotoModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 2B1087791DE385DF00652D19 /* PhotoModel.m */; };
+		2B10877D1DE3972400652D19 /* CustomCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 2B10877C1DE3972400652D19 /* CustomCollectionViewCell.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -53,10 +53,10 @@
 		2B1087631DE3795B00652D19 /* CatsFlickrUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = CatsFlickrUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		2B1087671DE3795B00652D19 /* CatsFlickrUITests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CatsFlickrUITests.m; sourceTree = "<group>"; };
 		2B1087691DE3795B00652D19 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		2B1087751DE3842400652D19 /* CustomTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CustomTableViewCell.h; sourceTree = "<group>"; };
-		2B1087761DE3842400652D19 /* CustomTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CustomTableViewCell.m; sourceTree = "<group>"; };
 		2B1087781DE385DF00652D19 /* PhotoModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PhotoModel.h; sourceTree = "<group>"; };
 		2B1087791DE385DF00652D19 /* PhotoModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PhotoModel.m; sourceTree = "<group>"; };
+		2B10877B1DE3972400652D19 /* CustomCollectionViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CustomCollectionViewCell.h; sourceTree = "<group>"; };
+		2B10877C1DE3972400652D19 /* CustomCollectionViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CustomCollectionViewCell.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -113,8 +113,8 @@
 				2B1087491DE3795B00652D19 /* ViewController.m */,
 				2B1087781DE385DF00652D19 /* PhotoModel.h */,
 				2B1087791DE385DF00652D19 /* PhotoModel.m */,
-				2B1087751DE3842400652D19 /* CustomTableViewCell.h */,
-				2B1087761DE3842400652D19 /* CustomTableViewCell.m */,
+				2B10877B1DE3972400652D19 /* CustomCollectionViewCell.h */,
+				2B10877C1DE3972400652D19 /* CustomCollectionViewCell.m */,
 				2B10874B1DE3795B00652D19 /* Main.storyboard */,
 				2B10874E1DE3795B00652D19 /* Assets.xcassets */,
 				2B1087501DE3795B00652D19 /* LaunchScreen.storyboard */,
@@ -286,8 +286,8 @@
 				2B10874A1DE3795B00652D19 /* ViewController.m in Sources */,
 				2B10877A1DE385DF00652D19 /* PhotoModel.m in Sources */,
 				2B1087471DE3795B00652D19 /* AppDelegate.m in Sources */,
-				2B1087771DE3842400652D19 /* CustomTableViewCell.m in Sources */,
 				2B1087441DE3795B00652D19 /* main.m in Sources */,
+				2B10877D1DE3972400652D19 /* CustomCollectionViewCell.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
